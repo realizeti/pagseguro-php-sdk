@@ -105,7 +105,7 @@ class Reference
             $connection->buildTransactionSearchRequestUrl(),
             $connection->buildCredentialsQuery(),
             $reference,
-            sprintf("&%s=%s", Current::SEARCH_INITIAL_DATE, $params["initial_date"]),
+            !isset($params["initial_date"]) ? '' : sprintf("&%s=%s", Current::SEARCH_INITIAL_DATE, $params["initial_date"]),
             !isset($params["final_date"]) ? '' : sprintf("&%s=%s", Current::SEARCH_FINAL_DATE, $params["final_date"]),
             !isset($params["max_per_page"]) ? '' :
                 sprintf("&%s=%s", Current::SEARCH_MAX_RESULTS_PER_PAGE, $params["max_per_page"]),
